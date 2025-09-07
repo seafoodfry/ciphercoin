@@ -4,6 +4,7 @@ stablecoin lab
 ---
 ## Dev
 
+
 Requirements:
 1. Make sure to update the ec2 key pair in [ec2.tf](./ec2.tf)
 
@@ -24,7 +25,25 @@ ssh ${INSTANCE_ID}
 ```
 
 ---
-## Setup
+## Maintenance
+
+Remember to run the following every now and then:
+
+```bash
+rustup self update
+
+rustup update
+```
+
+---
+## Code Setup
+
+[Get up and running with Foundry by installing the toolkit](https://getfoundry.sh/introduction/installation/)
+
+
+
+---
+## Infra Setup
 
 ### Choosing an EC2
 
