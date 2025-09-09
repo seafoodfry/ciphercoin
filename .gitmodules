@@ -1,0 +1,3 @@
+[submodule "ciphercoin/lib/forge-std"]
+	path = ciphercoin/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std

@@ -108,3 +108,10 @@ in a terminal, we can simply
 ```bash
 ssh  ${INSTANCE_ID}
 ```
+
+---
+## Code Setup
+
+```bash
+forge init ciphercoin
+```
