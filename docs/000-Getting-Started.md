@@ -79,5 +79,62 @@ I haven't found a good tutorial to help get enough context to start doing cool t
 **NOTE:** you still need to learn how Ethereum works on your own, otherwise this won't make much sense.
 We really liked [ethereum.org/developers/docs](https://ethereum.org/developers/docs/).
 
+A way to do dev is like so:
 
+In one terminal, in the infra dir,
+```bash
+make sync
+```
+each time you do changes.
 
+In another terminal, `ssh $INSTANCE_ID` and do things like:
+
+```bash
+tmux new -s dev
+
+cd ciphercoing
+
+tmux detach or Ctrl+b d
+```
+
+You can see your active tmux session by running
+```bash
+tmux ls
+```
+
+And you can get back in there by
+```bash
+tmux attach -t dev
+```
+
+We also got some targets in the Makefile to run an anvil node and cast
+
+### TL;DR
+
+```bash
+tmux new -s dev
+
+make anvil
+
+make
+
+# Ctrl-b d
+```
+
+When you deploy the contract, you will see an "contract address" output, save it.
+
+Then in another terminal
+```bash
+make cast
+```
+
+Then you can do things such as:
+```bash
+export CONTRACT_ADDR=0x...
+
+cast call $CONTRACT_ADDR "number()" --rpc-url http://anvil-node:8545
+
+cast send $CONTRACT_ADDR "increment()" --rpc-url http://anvil-node:8545 --private-key ${ANVIL_PRIV_KEY}
+
+cast send $CONTRACT_ADDR  "setNumber(uint256)" 42 --rpc-url http://anvil-node:8545 --private-key ${ANVIL_PRIV_KEY}
+```

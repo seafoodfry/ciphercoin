@@ -17,20 +17,24 @@ https://book.getfoundry.sh/
 
 ### Build
 
+Build your contracts (compiles them)
 ```shell
-$ forge build
+forge build
 ```
 
 ### Test
 
 ```shell
-$ forge test
+forge test
+
+# or
+forge test -vvv
 ```
 
 ### Format
 
 ```shell
-$ forge fmt
+forge fmt
 ```
 
 ### Gas Snapshots
