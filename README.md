@@ -106,7 +106,7 @@ This was, after running
 in a terminal, we can simply
 
 ```bash
-ssh  ${INSTANCE_ID}
+ssh ${INSTANCE_ID}
 ```
 
 ---

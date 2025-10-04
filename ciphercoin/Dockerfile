@@ -2,14 +2,20 @@
 FROM ghcr.io/foundry-rs/foundry:v1.3.5
 
 ARG USER_ID=1000
-ARG GROUP_ID=1000
 
 # Default user in foundry image is
 # uid=1000(foundry) gid=1000(foundry) groups=1000(foundry)
 USER root
-RUN adduser --disabled-password --uid ${USER_ID} devuser && \
-    mkdir -p /home/devuser && \
-    chown devuser:devuser /home/devuser
+RUN if [ "${USER_ID}" != "1000" ]; then \
+        deluser foundry && \
+        adduser --disabled-password --uid ${USER_ID} devuser && \
+        mkdir -p /home/devuser && \
+        chown devuser:devuser /home/devuser; \
+    else \
+        usermod -l devuser foundry && \
+        groupmod -n devuser foundry && \
+        usermod -d /home/devuser -m devuser; \
+    fi
 
 USER devuser
 # https://getfoundry.sh/introduction/installation/
