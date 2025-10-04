@@ -16,6 +16,10 @@ ssh:
     --document-name AWS-StartSSHSession \
     --parameters portNumber=22
 
+.PHONY: sync
+sync:
+	rsync -rvzP ../ciphercoin ${INSTANCE_ID}:/home/ec2-user
+
 .PHONY: destroy
 destroy:
 	./run-cmd-in-shell.sh terraform destroy
