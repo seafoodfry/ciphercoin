@@ -64,3 +64,30 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+
+
+---
+
+# Project setup
+
+```bash
+forge init ciphercoin
+```
+
+**NOTE:** do NOT create a project within a repo! This will cause you headaches since forge adds its STD via a git submodule (ew).
+To keep life simple and enjoyable, run the above, and then use that as the repo.
+
+---
+# Maintenance
+
+```bash
+forge update
+```
+
+Remember to run the following every now and then:
+
+```bash
+rustup self update
+
+rustup update
+```
